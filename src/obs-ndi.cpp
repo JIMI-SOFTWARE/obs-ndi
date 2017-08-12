@@ -71,10 +71,7 @@ bool obs_module_load(void) {
         return false;
     }
 
-    if (!ndiLib->NDIlib_initialize()) {
-        blog(LOG_ERROR, "CPU unsupported by NDI library. Module won't load.");
-        return false;
-    }
+    ndiLib->NDIlib_initialize();
 
     NDIlib_find_create_t find_desc = {0};
     find_desc.show_local_sources = true;
